@@ -1,0 +1,759 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffeaf3;
+    overflow: hidden;
+}
+
+
+/* =========================
+   PANTALLA DE INICIO
+   ========================= */
+
+#pantallaInicio {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffd6e7,
+        #fff0f6
+    );
+}
+
+.corazon {
+    font-size: 70px;
+    animation: latido 1.2s infinite;
+}
+
+h1 {
+    color: #c2185b;
+    font-size: 55px;
+    margin-top: 10px;
+}
+
+h2 {
+    color: #e91e63;
+    font-size: 30px;
+    margin-top: 5px;
+}
+
+#pantallaInicio p {
+    color: #6d4050;
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 25px 0;
+}
+
+
+/* =========================
+   BOTÓN
+   ========================= */
+
+button {
+    border: none;
+    padding: 15px 35px;
+
+    border-radius: 30px;
+
+    background: #e91e63;
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   VIDEOJUEGO
+   ========================= */
+
+#juego {
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #d9f4d2;
+}
+
+
+/* =========================
+   CONTADOR
+   ========================= */
+
+#informacion {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    background: white;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    font-size: 22px;
+
+    z-index: 20;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+
+/* =========================
+   ESCENARIO
+   ========================= */
+
+#escenario {
+    position: relative;
+
+    width: 90vw;
+    height: 75vh;
+
+    margin: 8vh auto 0;
+
+    background: #a8df9b;
+
+    border: 8px solid #6b9f62;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   PERSONAJE
+   ========================= */
+
+#personaje {
+    position: absolute;
+
+    left: 100px;
+    top: 250px;
+
+    font-size: 50px;
+
+    transition: left 0.08s, top 0.08s;
+
+    z-index: 10;
+}
+
+
+/* =========================
+   DECORACIONES
+   ========================= */
+
+.decoracion {
+    position: absolute;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* ÁRBOLES */
+
+.arbol1 {
+    left: 25px;
+    top: 25px;
+    font-size: 60px;
+}
+
+.arbol2 {
+    right: 25px;
+    top: 35px;
+    font-size: 60px;
+}
+
+.arbol3 {
+    left: 80px;
+    bottom: 20px;
+    font-size: 55px;
+}
+
+.arbol4 {
+    right: 90px;
+    bottom: 20px;
+    font-size: 55px;
+}
+
+.arbol5 {
+    left: 45%;
+    top: 20px;
+    font-size: 50px;
+}
+
+
+/* FLORES */
+
+.flor1 {
+    left: 220px;
+    bottom: 30px;
+    font-size: 35px;
+}
+
+.flor2 {
+    right: 230px;
+    bottom: 35px;
+    font-size: 35px;
+}
+
+.flor3 {
+    left: 350px;
+    top: 60px;
+    font-size: 32px;
+}
+
+.flor4 {
+    right: 350px;
+    top: 100px;
+    font-size: 35px;
+}
+
+.flor5 {
+    left: 45%;
+    bottom: 35px;
+    font-size: 32px;
+}
+
+.flor6 {
+    right: 50px;
+    top: 45%;
+    font-size: 30px;
+}
+
+
+/* ARBUSTOS */
+
+.arbusto1 {
+    left: 300px;
+    bottom: 10px;
+    font-size: 40px;
+}
+
+.arbusto2 {
+    right: 300px;
+    bottom: 10px;
+    font-size: 40px;
+}
+
+.arbusto3 {
+    left: 20px;
+    top: 45%;
+    font-size: 35px;
+}
+
+.arbusto4 {
+    right: 20px;
+    top: 60%;
+    font-size: 35px;
+}
+
+
+/* =========================
+   MARIPOSAS
+   ========================= */
+
+.mariposa {
+    position: absolute;
+
+    font-size: 30px;
+
+    z-index: 3;
+
+    animation: volar 5s ease-in-out infinite alternate;
+}
+
+.mariposa1 {
+    left: 35%;
+    top: 25%;
+}
+
+.mariposa2 {
+    left: 65%;
+    top: 35%;
+
+    animation-delay: 1.5s;
+}
+
+.mariposa3 {
+    left: 50%;
+    top: 65%;
+
+    animation-delay: 3s;
+}
+/* =========================
+   Animaciones Mariposas
+   ========================= */
+@keyframes volar1 {
+    0%{
+        transform: translate(0,0) rotate(0deg);
+    }
+    25%{
+        transform: translate(80px, -30px) rotate(0deg);
+    }
+    50%{
+        transform: translate(60px, 50px) rotate(0deg);
+    }
+    100%{
+        transform: translate(0,0) rotate(0deg);
+    }
+}
+@keyframes volar2 {
+    0%{
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(-120px, -50px) rotate(-10deg);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+@keyframes volar3 {
+    0%{
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(100px, 60px) rotate(10deg);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+/* =========================
+   CORAZONES
+   ========================= */
+
+.corazonJuego {
+    position: absolute;
+
+    font-size: 48px;
+
+    z-index: 8;
+
+    animation: flotar 1.5s infinite;
+
+    filter: drop-shadow(
+        0 3px 3px rgba(0,0,0,0.2)
+    );
+}
+
+
+/* POSICIONES DE LOS CORAZONES */
+
+#corazon1 {
+    left: 65%;
+    top: 45%;
+}
+
+#corazon2 {
+    left: 25%;
+    top: 25%;
+}
+
+#corazon3 {
+    right: 20%;
+    top: 65%;
+}
+
+#corazon4 {
+    left: 48%;
+    top: 15%;
+}
+
+#corazon5 {
+    left: 72%;
+    top: 25%;
+}
+
+/* ANIMACIÓN DEL SIGUIENTE CORAZÓN */
+
+.aparecer {
+    display: block !important;
+
+    animation:
+        aparecer 0.8s ease-out,
+        flotar 1.5s ease-in-out 0.8s infinite;
+}
+
+
+/* =========================
+   VENTANA DE RECUERDO
+   ========================= */
+
+#ventanaRecuerdo {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255, 240, 246, 0.94);
+
+    z-index: 50;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* TARJETA */
+
+.recuerdo {
+    width: 500px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
+
+    animation: aparecer 0.5s ease;
+}
+
+.recuerdo h2 {
+    color: #c2185b;
+
+    margin-bottom: 15px;
+}
+
+.recuerdo p {
+    color: #6d4050;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   INSTRUCCIONES
+   ========================= */
+
+#instrucciones {
+    text-align: center;
+
+    color: #704d5c;
+
+    font-size: 18px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+
+@keyframes latido {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes aparecer {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes volar {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(40px, -20px);
+    }
+
+    100% {
+        transform: translate(80px, 10px);
+    }
+}
+   /* =========================
+   IMAGEN DEL RECUERDO
+   ========================= */
+
+#imagenRecuerdo {
+width: 100%;
+max-height: 300px;
+object-fit: cover;
+border-radius: 18px;
+margin: 10px 0 20px;
+box-shadow: 0 5px rgba(0, 0, 0, 0.15);
+display: none;
+}
+
+/* =========================
+   CORAZÓN DE LA TARJETA
+   ========================= */
+.corazonRecuerdo{
+    font-size: 45px;
+    animation: latido 1.2s infinite;
+    margin-top: 5px;
+}
+
+/* =========================
+   Pantalla Final
+   ========================= */
+   #pantallaFinal{
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background: linear-gradient(
+        135deg, #ffd6e7, #fff0f6, #ffe4ef
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   }
+
+   .finalContenido{
+    max-width: 600px;
+    padding: 40px;
+    animation: aparecer 1s ease;
+   }
+
+   .corazonesFinales{
+    font-size: 45px;
+    margin-bottom: 20px;
+    animation: latido 1.5s infinite;
+   }
+
+   .finalContenido h1{
+    color: #c2185b;
+    font-size: 50px;
+    margin-bottom: 20px;
+   }
+
+   .finalContenido p{
+    color: #704d5c;
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+   }
+
+   /* =========================
+   CARTA FINAL
+   ========================= */
+   #cartaFinal{
+    position: absolute;
+    inset: 0;
+    z-index: 200;
+    background: rgba(255, 234, 243, 0.97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    overflow-y: auto;
+   }
+
+   /* =========================
+   Hoja de la carta
+   ========================= */
+   .carta{
+    position: relative;
+    width: 600px;
+    max-width: 600px;
+    max-height: 90%;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #fffafc, #fff0f6);
+    border-radius: 25px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(120, 50, 80, 0.25);
+    animation: cartaAparecer 0.8s ease;
+   }
+
+   /* =========================
+   Botón cerrar
+   ========================= */
+   .cerrarCarta{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background: #f8d6e3;
+    color: #a91b50;
+    font-size: 18px;
+    cursor: pointer;
+   }
+
+   .cerrarCarta:hover{
+    transform: scale(1.1);
+    background: #f2bfd2;
+   }
+
+   /* =========================
+   Corazón
+   ========================= */
+   .corazonCarta{
+    font-size: 45px;
+    animation: latido 1.3s infinite;
+    margin-bottom: 5px;
+   }
+
+   /* =========================
+   Título
+   ========================= */
+   .carta h1{
+    color: #c2185b;
+    font-size: 38px;
+    margin-bottom: 20px;
+   }
+
+   /* =========================
+   Foto Final
+   ========================= */
+   #fotoFinal{
+    width: 100%;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+   }
+
+   /* =========================
+   Texto
+   ========================= */
+   .textoCarta{
+    color: #704d5c;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: left;
+   }
+/* =========================
+   Efecto de Escritura
+   ========================= */
+   .textoCarta p{
+    margin-bottom: 18px;
+    animation: aparecerTexto 0.5s ease;
+   }
+
+   @keyframes aparecerTexto {
+    from{
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+   }
+
+   /* =========================
+   Firma
+   ========================= */
+   .firma{
+    text-align: center;
+    color: #c2185b;
+    font-size: 20px;
+    margin-top: 25px;
+   }
+
+   /* =========================
+   Animación
+   ========================= */
+   @keyframes cartaAparecer {
+    0%{
+        opacity: 0;
+        transform: scale(0.7) translateY(40px);
+    }
+    70%{
+        opacity: 1;
+        transform: scale(1.03) translateY(-5px);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+   }
+
+/* =========================
+   ELEMENTOS OCULTOS
+   ========================= */
+
+.oculto {
+    display: none !important;
+}
